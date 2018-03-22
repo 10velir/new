@@ -1,16 +1,15 @@
 
 import org.junit.Assert;
 import org.junit.BeforeClass;
-import org.junit.jupiter.api.Test;
-
+import org.junit.Test;
 
 public class MatchTest {
-    Worker worker = new Worker();
+    static Worker worker = new Worker();
     Managment manager = new Managment();
 
     //Match match = new Match(participant,participant2);
     @BeforeClass
-    public void setUp() throws Exception {
+    public static void setUp() throws Exception {
         Participant participant = new Participant("gkhjgkh",5);
         Participant participant2 = new Participant("gkhjgkh",5);
         worker.createMatch(participant,participant2,2);
@@ -24,7 +23,7 @@ public class MatchTest {
         worker.setPercents(60,40,2);
         worker.changeMargin(14,2);
         worker.RecalculationOfCoefficients(2);
-        Assert.assertEquals(1.6666666666666667, worker.chooseMath(2).firstParticipant.getCoefficient(),0.1);
+        Assert.assertEquals(1.3513513513513513, worker.chooseMath(2).firstParticipant.getCoefficient(),0.1);
     }
 
     @Test
